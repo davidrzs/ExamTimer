@@ -11,6 +11,10 @@ body{
     background: rgb(66, 184, 221);
 }
 
+.orange{
+    background: #FFC15E;
+}
+
 .dangerous{
     float: right;
 }
