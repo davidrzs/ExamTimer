@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>ExamTimer</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"></script>
+  <script src="./logic.js"></script>
+
+
+  <h1>ExamTimer</h1>
+
+
+    <hr>
+    <h2>Data Entry Form</h2>
+    <form id="entry" class="pure-form-aligned">
+
+            <div class="pure-control-group">
+                <label for="mins">Exam Duration in Minutes</label>
+                <input name="mins" type="number" id="mins" placeholder="Minutes for Exam"/>
+            </div>
+            <div class="pure-control-group">
+                <label for="questions">Number of Equal Length Blocks in Exam</label>
+                <input name="questions" type="number" id="questions" placeholder="Number of Questions"/>
+            </div>
+
+            <div class="pure-controls">
+                <button type="submit" class="pure-button pure-button-primary">Enter Details</button>
+            </div>
+    </form>
+    <hr>
+    <h2>Currently Loaded Data</h2>
+    <p>If no numbers appear in the list this means no data is loaded!</p>
+    <ul>
+        <li>
+            We have <span id="nr_q"></span> questions.
+        </li>
+        <li>
+            A total of <span id="nr_mins"></span> minutes.
+        </li>
+        <li>
+            This gives you <span id="mins_per_q"></span> minutes per question.
+        </li>
+    </ul>
+
+    <hr>
+    <a class="pure-button red dangerous" id="start">Start Timer from 0</a>
+    <a class="pure-button blue" id="advance">Advance Timer to Next Questions</a>
+
+
+    <div id="timediv">
+
+        <p>In question: <span class="imp" id="current_question"></span></p>
+        <p>Time for current question: <span class="imp" id="time_left_this_question"></span> minutes.</p>
+        <p>Total time left: <span class="imp" id="total_time_left"></span> minutes.</p>
+    </div>
+
+    </body>
+</html>
