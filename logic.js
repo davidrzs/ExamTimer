@@ -1,33 +1,8 @@
-/*
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+var jquery = require("jquery");
+window.$ = window.jQuery = jquery; // notice the definition of global variables here
 
-// Update the count down every 1 second
-var x = setInterval(function() {
 
-  // Get today's date and time
-  var now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-*/
 
 let nr_of_q = 0;
 let nr_of_mins = 0;
@@ -37,6 +12,8 @@ let current_question = 0;
 
 let timer_start = null;
 let timer_function = null;
+
+let is_dark = false;
 
 
 $(document).ready(function() {
@@ -163,6 +140,18 @@ $(document).ready(function() {
     $("#advance").click(function(event) {
         current_question += 1;
         console.log("advance");
+    });
+
+    $("#dark-mode").click(function(event) {
+        if(is_dark){
+            $('.to_darken').removeClass('darken')
+            $('body').removeClass('lightsoff');
+            is_dark = false;
+        } else {
+            $('.to_darken').addClass('darken')
+            $('body').addClass('lightsoff');
+            is_dark = true;
+        }
     });
 
 

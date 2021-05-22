@@ -1,22 +1,30 @@
 {
   "name": "examtimer",
   "version": "1.0.0",
-  "description": "",
+  "description": "A smart timer webapp.",
   "main": "logic.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidrzs/ExamTimer.git"
   },
-  "author": "",
+  "author": "David Zollikofer",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/davidrzs/ExamTimer/issues"
   },
   "homepage": "https://github.com/davidrzs/ExamTimer#readme",
   "dependencies": {
-    "parcel-bundler": "^1.12.5"
+    "bootstrap": "^5.0.1",
+    "jquery": "^3.6.0",
+    "popper": "^1.0.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.33.0"
   }
 }
