@@ -62,21 +62,20 @@
                 <section class="white intro">
 
                     <h1><span class="numberCircle"><span>1</span></span>Enter Exam Details</h1>
-                    <h2>Data Entry Form</h2>
-                    <form id="entry" class="pure-form-aligned">
-            
-                        <div class="pure-control-group">
+                    <form id="entry">
+
+                        <div class="form-group">
                             <label for="mins">Exam Duration in Minutes</label>
-                            <input name="mins" type="number" id="mins" placeholder="Minutes for Exam" />
+                            <input name="mins" class="form-control" type="number" id="mins"
+                                placeholder="Minutes for Exam" />
                         </div>
-                        <div class="pure-control-group">
+                        <div class="form-group">
                             <label for="questions">Number of Equal Length Blocks in Exam</label>
-                            <input name="questions" type="number" id="questions" placeholder="Number of Questions" />
+                            <input name="questions" class="form-control" type="number" id="questions"
+                                placeholder="Number of Questions" />
                         </div>
-            
-                        <div class="pure-controls">
-                            <button type="submit" class="pure-button pure-button-primary">Enter Details</button>
-                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-2">Enter Details</button>
                     </form>
                 </section>
             </div>
@@ -85,7 +84,6 @@
                 <section class="white check-details">
 
                     <h1><span class="numberCircle"><span>2</span></span>Check Calculations</h1>
-                    <h2>Currently Loaded Data</h2>
                     <p>If no numbers appear in the list this means no data is loaded!</p>
                     <ul>
                         <li>
@@ -98,7 +96,8 @@
                             This gives you <span id="mins_per_q"></span> minutes per question.
                         </li>
                     </ul>
-            
+                    <a class="btn btn-danger" id="start">Start Timer</a>
+
                 </section>
             </div>
         </div>
@@ -106,26 +105,34 @@
             <div class="col-sm">
                 <section class="white controls">
 
-                    <h1><span class="numberCircle"><span>3</span></span>Controls</h1>
-                    <a class="btn btn-danger dangerous" id="start">Start Timer from 0</a>
-                    <a class="btn btn-primary" id="advance">Advance Timer to Next Questions</a>
-                    <a class="btn btn-secondary" id="dark-mode">Toggle Dark Mode</a>
-
-                </section>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm">
-                <section class="white timer">
+                    <h1><span class="numberCircle"><span>3</span></span>ExamTimer</h1>
 
 
-                    <div id="timediv">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div id="timediv">
 
-                        <p>In question: <span class="imp" id="current_question"></span></p>
-                        <p>Time for current question: <span class="imp" id="time_left_this_question"></span> minutes.</p>
-                        <p>Total time left: <span class="imp" id="total_time_left"></span> minutes.</p>
+                                <p>In question: <span class="imp" id="current_question"></span></p>
+                                <p>Time for current question: <span class="imp" id="time_left_this_question"></span> minutes.
+                                </p>
+                                <p>Total time left: <span class="imp" id="total_time_left"></span> minutes.</p>
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="d-grid gap-4 mx-auto">
+                                <a class="btn btn-primary" id="advance">Advance Timer to Next Questions</a>
+                                <a class="btn btn-warning" id="pause">Pause/Unpause</a>
+                                <a class="btn btn-secondary" id="dark-mode">Toggle Dark Mode</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                          
+                        </div>
                     </div>
+
+
                 </section>
             </div>
         </div>
@@ -133,8 +140,7 @@
 
 
 
-
-<!--
+        <!--
         <section class="white about">
             <h1 id="about">About</h1>
 

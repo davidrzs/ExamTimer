@@ -5,7 +5,7 @@
   "main": "logic.js",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html && mv dist docs"
   },
   "repository": {
     "type": "git",

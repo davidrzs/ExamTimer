@@ -4,6 +4,7 @@ window.$ = window.jQuery = jquery; // notice the definition of global variables 
 
 
 
+
 let nr_of_q = 0;
 let nr_of_mins = 0;
 let mins_per_q = 0;
@@ -13,8 +14,11 @@ let current_question = 0;
 let timer_start = null;
 let timer_function = null;
 
-let is_dark = false;
+let pause_start = null;
+let is_paused = false;
 
+
+let is_dark = false;
 
 $(document).ready(function() {
 
@@ -123,14 +127,16 @@ $(document).ready(function() {
 
     $("#start").click(function(event) {
         current_question = 0;
-
+        is_paused = false;
         timer_start = Date.now();
 
         clearInterval(timer_function);
 
         timer_function = setInterval(function(){
-            setTimeData();
-        },50);
+            if(!is_paused){
+                setTimeData();
+            }
+        },100);
 
         console.log("start");
     });
@@ -140,6 +146,23 @@ $(document).ready(function() {
     $("#advance").click(function(event) {
         current_question += 1;
         console.log("advance");
+    });
+
+    $("#pause").click(function(event) {
+        if(is_paused){
+            is_paused = false;
+            time_was_paused = Date.now() - pause_start;
+            pause_start = null;
+            timer_start += time_was_paused;
+        } else {
+            is_paused = true;
+            pause_start = Date.now()
+
+        }
+
+
+        setTimeData();
+        console.log("pause toggled");
     });
 
     $("#dark-mode").click(function(event) {
@@ -157,4 +180,8 @@ $(document).ready(function() {
 
 
 
+
+
 });
+
+
